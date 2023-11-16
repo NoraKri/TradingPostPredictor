@@ -1,4 +1,4 @@
-import gw2api
+﻿import gw2api
 import json
 
 def get_items_ids():
