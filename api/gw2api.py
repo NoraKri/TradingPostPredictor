@@ -13,6 +13,7 @@ try:
 except ImportError:
     import simplejson as json
 
+
 class GW2API:
     V1 = 'v1'
     V2 = 'v2'
@@ -55,6 +56,7 @@ def fetch_requests(requests, max_parallel_requests, timeout):
                 # print '"%s" fetched data %ss' % (req, data[idx])
         return data
 
+
 def request_transactions_current_buys(authKey):
     # Creates a request to get the details of the current buy orders
     return _request(GW2API.V2, 'commerce/transactions/current/buys', authorization=authKey)
@@ -73,7 +75,6 @@ def request_transactions_history_buys(authKey):
 def request_transactions_history_sells(authKey):
     # Creates a request to get the details of the history of sell orders
     return _request(GW2API.V2, 'commerce/transactions/history/sells', authorization=authKey)
-
 
 
 def request_items():
@@ -126,7 +127,7 @@ def request_prices(*ids):
 
 # Sample usage of listings and prices
 #
-#def test_listings():
+# def test_listings():
 #    oneItem = [19684]
 #    multipleItems = [19684, 19709, 19970, 19971]
 #    req = []
@@ -137,7 +138,7 @@ def request_prices(*ids):
 #    pprint.pprint(res)
 #
 #
-#def test_prices():
+# def test_prices():
 #    oneItem = [19684]
 #    multipleItems = [19684, 19709, 19970, 19971]
 #    req = []
