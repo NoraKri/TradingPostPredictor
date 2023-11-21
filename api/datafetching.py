@@ -38,8 +38,8 @@ def get_item_prices(items):
     itemPrices = json.loads(data[0])
     return itemPrices
 
-def get_item_history(items):
-    url = datawars2api.request_item_history(items)
+def get_item_history(item):
+    url = datawars2api.request_item_history(item)
     data = gw2api.fetch_requests([url], 5, 60)
-    itemHistory = json.loads(data[0])
-    return itemHistory
+    result = json.loads(data[0])
+    return result

@@ -25,6 +25,9 @@ def _request(gw2api_version, json_location, **args):
 
 def request_item_history(ids):
     # Creates a request to get the price history of a list of items.
-    return _request(DATAWARS2API.V2, 'history/json', itemID=','.join(str(id) for id in ids))
+    if isinstance(ids, int):
+        return _request(DATAWARS2API.V2, 'history/json', itemID=ids)
+    else:
+        return _request(DATAWARS2API.V2, 'history/json', itemID=','.join(str(id) for id in ids))
 
 
