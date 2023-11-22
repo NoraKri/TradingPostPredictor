@@ -1,4 +1,6 @@
-﻿import gw2api, datawars2api, json
+﻿import data.datawars2api as datawars2api
+import data.gw2api as gw2api
+import json
 
 
 # Chunk items when fetching data with a lot of parameters, because a 414 error is thrown.
@@ -38,8 +40,9 @@ def get_item_prices(items):
     itemPrices = json.loads(data[0])
     return itemPrices
 
-def get_item_history(item):
-    url = datawars2api.request_item_history(item)
+
+def get_item_history(item, start_timestamp=None):
+    url = datawars2api.request_item_history(item, start_timestamp)
     data = gw2api.fetch_requests([url], 5, 60)
     result = json.loads(data[0])
     return result
